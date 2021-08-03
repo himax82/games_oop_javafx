@@ -8,8 +8,7 @@ import ru.job4j.chess.firuges.black.KingBlack;
 
 public class LogicTest {
 
-    @Ignore
-    @Test
+    @Test (expected = OccupiedCellException.class)
     public void moveWhenFigure()
             throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
         Logic logic = new Logic();
@@ -18,8 +17,7 @@ public class LogicTest {
         logic.move(Cell.C1, Cell.H6);
     }
 
-    @Ignore
-    @Test
+    @Test (expected = ImpossibleMoveException.class)
     public void moveNotDiagonal()
             throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
         Logic logic = new Logic();
@@ -27,8 +25,7 @@ public class LogicTest {
         logic.move(Cell.D4, Cell.F5);
     }
 
-    @Ignore
-    @Test
+    @Test (expected = FigureNotFoundException.class)
     public void moveFigureNotFound()
             throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
         Logic logic = new Logic();
